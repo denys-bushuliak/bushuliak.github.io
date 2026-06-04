@@ -20,7 +20,7 @@ struct Args {
     out: PathBuf,
 }
 
-const LAYOUT_FILE_PATH: &str = "index.html";
+const LAYOUT_FILE_PATH: &str = "template.html";
 const CONTENT_PLACEHOLDER: &str = "<!--REPLACE_ME_BY_CONTENT-->";
 
 fn main() -> Result<(), Box<dyn Error>> {
