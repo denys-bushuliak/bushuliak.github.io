@@ -43,4 +43,4 @@ Committed to continual learning and staying updated with the latest advancements
 * As a Jehovah's Witness, I teach the Bible to everyone who wants to know more about
 it for free.
 * I have created and maintain a website for learning the Kurdish language (kurmanji
-dialect) at [https://kurmanci-denys-bushuliak.vercel.app](https://kurmanci-denys-bushuliak.vercel.app).
+dialect) at [https://denys-bushuliak.github.io/kurmanci](https://denys-bushuliak.github.io/kurmanci).
