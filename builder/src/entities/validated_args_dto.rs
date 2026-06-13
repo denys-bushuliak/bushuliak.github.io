@@ -1,9 +1,9 @@
 use std::{error::Error, fmt::Display, path::PathBuf};
 
-use crate::Args;
+use super::args_dto::Args;
 
 #[derive(Debug)]
-pub(crate) struct ValidatedArgsDto {
+pub struct ValidatedArgsDto {
     /// Source folder with markdowns
     pub input_directory: PathBuf,
 
@@ -35,17 +35,21 @@ impl TryFrom<Args> for ValidatedArgsDto {
     }
 }
 #[derive(Debug)]
-#[allow(unused_attributes, unused)]
 pub enum ArgumentsValidationError {
     InputDirectoryDoesNotExist(PathBuf),
-    OutputDirectoryDoesNotExist(PathBuf),
     InputShouldBeDirectory(PathBuf),
-    OutputShouldBeDirectory(PathBuf),
 }
 
 impl Display for ArgumentsValidationError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:#?}", self)
+        match self {
+            ArgumentsValidationError::InputDirectoryDoesNotExist(p) => {
+                write!(f, "Input directory does not exist: {p:?}")
+            }
+            ArgumentsValidationError::InputShouldBeDirectory(p) => {
+                write!(f, "Input path is not a directory: {p:?}")
+            }
+        }
     }
 }
 

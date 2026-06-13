@@ -1,1 +1,4 @@
 target
+*.profraw
+coverage/
+lcov.info

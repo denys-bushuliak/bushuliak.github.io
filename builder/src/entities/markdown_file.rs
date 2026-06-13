@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 #[derive(Debug)]
-pub(crate) struct MarkdownFile {
+pub struct MarkdownFile {
     pub path: PathBuf,
     pub content: String,
 }
