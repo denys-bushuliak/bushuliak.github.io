@@ -14,11 +14,10 @@ I am committed to continuous learning, staying current with the latest technolog
 
 <h3 id="education">Education</h3>
 
-Vinnitsa National Technical University (from 2008 to 2009)
-Specialist* Degree, in Machine Building Processes: Automation of Machine Building
-Engineering.
-
-\* In Ukraine, this falls between a bachelor’s and a master’s degree
+Degree: Master of Science in Mechanical Engineering
+Specialization: Automation of Manufacturing Processes using Information and Computer Technologies
+Institution: Vinnytsia National Technical University
+Year: 2009
 
 ### Known Languages
 * English Reading C2, Listening and speaking B2 [EF SET](https://cert.efset.org/WSdoAM),
@@ -26,7 +25,6 @@ Engineering.
 * Russian - Native
 * Kurmanji - B1
 * Turkish - A1
-
 
 <h3 id="list-of-interests">List of interests</h3>
 
@@ -40,7 +38,5 @@ Committed to continual learning and staying updated with the latest advancements
 <h3 id="volunteering">Volunteering</h3>
 
 * I teach of programming and server application architecture for free.
-* As a Jehovah's Witness, I teach the Bible to everyone who wants to know more about
-it for free.
 * I have created and maintain a website for learning the Kurdish language (kurmanji
 dialect) at [https://denys-bushuliak.github.io/kurmanci](https://denys-bushuliak.github.io/kurmanci).
