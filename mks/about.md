@@ -14,13 +14,13 @@ I am committed to continuous learning, staying current with the latest technolog
 
 <h3 id="education">Education</h3>
 
-Degree: Master of Science in Mechanical Engineering
-Specialization: Automation of Manufacturing Processes using Information and Computer Technologies
-Institution: Vinnytsia National Technical University
-Year: 2009
+- **Degree:** Master of Science in Mechanical Engineering
+- **Specialization:** Automation of Manufacturing Processes using Information and Computer Technologies
+- **Institution:** Vinnytsia National Technical University
+- **Year:** 2009
 
 ### Known Languages
-* English Reading C2, Listening and speaking B2 [EF SET](https://cert.efset.org/WSdoAM),
+* English: reading C2, listening and speaking B2 ([EF SET](https://cert.efset.org/WSdoAM))
 * Ukrainian - Native
 * Russian - Native
 * Kurmanji - B1
@@ -37,6 +37,5 @@ Committed to continual learning and staying updated with the latest advancements
 
 <h3 id="volunteering">Volunteering</h3>
 
-* I teach of programming and server application architecture for free.
-* I have created and maintain a website for learning the Kurdish language (kurmanji
-dialect) at [https://denys-bushuliak.github.io/kurmanci](https://denys-bushuliak.github.io/kurmanci).
+* I teach programming and server application architecture for free.
+* I created and maintain a website for learning the Kurdish language (Kurmanji dialect) at [https://denys-bushuliak.github.io/kurmanci](https://denys-bushuliak.github.io/kurmanci).

@@ -32,13 +32,25 @@ analytics tools and ensuring continuous monitoring
 and observability; Managing CI/CD processes and
 supporting infrastructure scalability and reliability.
 
-**Technologies:** Rust (Tokio, Cargo Lambda, Workspace, concurrency and multi-threading),
-Python, Node.js, TypeScript, HTML5/CSS, Custom SQL
-Dialect, PostgreSQL, MongoDB, React.js, Apache
-Airflow, DataFusion, Arrow, Parquet, AWS (EKS, S3, SNS,
-SQS, EFS, ElastiCache, CloudFront, EventBridge,
-CloudWatch, EC2, Lambda), Scaleway Cloud,
-Kubernetes, CI/CD, Pest.rs.
+**Technologies:**
+- Rust (Tokio, Cargo Lambda, Workspace, concurrency and multi-threading)
+- Python
+- Node.js
+- TypeScript
+- HTML5/CSS
+- Custom SQL Dialect
+- PostgreSQL
+- MongoDB
+- React.js
+- Apache Airflow
+- DataFusion
+- Arrow
+- Parquet
+- AWS (EKS, S3, SNS, SQS, EFS, ElastiCache, CloudFront, EventBridge, CloudWatch, EC2, Lambda)
+- Scaleway Cloud
+- Kubernetes
+- CI/CD
+- Pest.rs
 
 ⸻
 
@@ -64,10 +76,20 @@ Configuring DevOps processes using Docker Compose
 and GitHub Actions; Managing cloud storage and
 database infrastructure for operational data.
 
-**Technologies:** Node.js, TypeScript, JavaScript,
-GraphQL, ReactJS, Hexagonal Architecture, Event
-Sourcing, CQRS, ArangoDB, MongoDB, AWS S3, GitHub
-Actions, Docker Compose.
+**Technologies:**
+- Node.js
+- TypeScript
+- JavaScript
+- GraphQL
+- ReactJS
+- Hexagonal Architecture
+- Event Sourcing
+- CQRS
+- ArangoDB
+- MongoDB
+- AWS S3
+- GitHub Actions
+- Docker Compose
 
 ⸻
 
@@ -94,10 +116,23 @@ coordinating integration between services; Managing
 CI/CD pipelines and deploying the system using
 OpenShift.
 
-**Technologies:** Node.js, PHP, TypeScript, JavaScript,
-HTML/CSS, ReactPHP, RoadRunner, GraphQL, REST,
-JWT, Custom ABAC Service, Redis, MongoDB, GitLab
-CI/CD, Jenkins, OpenShift.
+**Technologies:**
+- Node.js
+- PHP
+- TypeScript
+- JavaScript
+- HTML/CSS
+- ReactPHP
+- RoadRunner
+- GraphQL
+- REST
+- JWT
+- Custom ABAC Service
+- Redis
+- MongoDB
+- GitLab CI/CD
+- Jenkins
+- OpenShift
 
 
 ⸻
@@ -127,9 +162,21 @@ system; Managing mobile development using React
 Native and Expo; Setting up infrastructure and
 orchestrating services using Docker Swarm.
 
-**Technologies:** Node.js, PHP, TypeScript, JavaScript,
-Laravel, Socket.io, JWT, ReactJS, React Native, Expo
-Framework, MongoDB, Redis, Pub/Sub, Docker Swarm.
+**Technologies:**
+- Node.js
+- PHP
+- TypeScript
+- JavaScript
+- Laravel
+- Socket.io
+- JWT
+- ReactJS
+- React Native
+- Expo Framework
+- MongoDB
+- Redis
+- Pub/Sub
+- Docker Swarm
 
 ⸻
 
@@ -158,6 +205,13 @@ communication systems using WebSockets and TCP/IP
 sockets; Managing data storage and operations via
 MySQL.
 
-**Technologies:** PHP, JavaScript, HTML/CSS, Apple Push
-Notification Service, Android Push Service, Blackberry,
-WebSockets, TCP/IP Sockets, MySQL.
+**Technologies:**
+- PHP
+- JavaScript
+- HTML/CSS
+- Apple Push Notification Service
+- Android Push Service
+- Blackberry
+- WebSockets
+- TCP/IP Sockets
+- MySQL

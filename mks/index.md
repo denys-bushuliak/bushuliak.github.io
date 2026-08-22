@@ -1,42 +1,8 @@
-<style>
-    #about-me-link{
-        color: red !important;
-    }
-</style>
+I am a Principal Software Engineer and solution architect with over 20 years of experience designing, building, and operating complex software — ERP systems, payment systems, CRM, and distributed platforms.
 
-I am a highly experienced Software Engineer and solution architect with over 20 years of professional experience in designing, developing, and implementing complex software solutions.  My expertise spans a wide range of domains, including ERP systems, CRM, payment systems, and service delivery platforms.  I am adept at transforming business requirements into robust, scalable, and maintainable technical solutions, with a strong focus on delivering value and accommodating future growth.
+My core focus is distributed systems, Rust, and data-intensive backends. I work across the full stack and care about clean architecture, testable code, and mentoring engineers.
 
-Throughout my career, I have focused on building distributed systems and modern web applications, with a strong background in backend development using languages such as Rust, PHP, Java, and Node.js.  I am also proficient in frontend development using modern JavaScript frameworks like ReactJS and Angular.  I am experienced in working across various technology stacks and am comfortable with full-stack development.
-
-I prioritize writing clean, testable code and am well-versed in implementing architectural patterns such as Hexagonal Architecture, CQRS, microservices, and Domain-Driven Design.  I am experienced in designing and managing data storage systems, deploying and maintaining cloud infrastructure, and configuring CI/CD pipelines.
-
-I am committed to continuous learning, staying current with the latest technological advancements, and mentoring other developers.
-
-<h3 id="education">Education</h3>
-
-Degree: Master of Science in Mechanical Engineering
-Specialization: Automation of Manufacturing Processes using Information and Computer Technologies
-Institution: Vinnytsia National Technical University
-Year: 2009
-
-### Known Languages
-* English Reading C2, Listening and speaking B2 [EF SET](https://cert.efset.org/WSdoAM),
-* Ukrainian - Native
-* Russian - Native
-* Kurmanji - B1
-* Turkish - A1
-
-<h3 id="list-of-interests">List of interests</h3>
-
-Committed to continual learning and staying updated with the latest advancements, I regularly read white papers from sources such as ACM, IEEE, VLDB, and many others. I enjoy mentoring newcomers on their journey as developers and also volunteer to teach aspiring developers, sharing my expertise to help them succeed.
-
-* Database internal architecture, data storing formats, InMemory DBMS;
-* OS Development and hypervisors;
-* WebAssembly
-* Functional Programming
-
-<h3 id="volunteering">Volunteering</h3>
-
-* I teach of programming and server application architecture for free.
-* I have created and maintain a website for learning the Kurdish language (kurmanji
-dialect) at [https://denys-bushuliak.github.io/kurmanci](https://denys-bushuliak.github.io/kurmanci).
+- [Projects](projects.html) — what I have built
+- [Skills](skills.html) — what I work with
+- [Recommendation letters](recommendation_letters.html) — what past teams say
+- [About me](about.html) — background, education, and volunteering

@@ -52,6 +52,55 @@ fn test_convert_to_html() {
 }
 
 #[test]
+fn test_convert_to_html_injects_page_meta() {
+    let input_dir = PathBuf::from("input");
+    let output_dir = PathBuf::from("output");
+    let layout = "<html><head><title><!--PAGE_TITLE--></title>\
+                   <meta name=\"description\" content=\"<!--PAGE_DESCRIPTION-->\"></head>\
+                   <body><!--REPLACE_ME_BY_CONTENT--></body></html>";
+    let placeholder = "<!--REPLACE_ME_BY_CONTENT-->";
+
+    let md_path = input_dir.join("skills.md");
+    let md_file = MarkdownFile::create(md_path, "Content".to_string());
+
+    let converter = convert_to_html(&output_dir, layout, placeholder, &input_dir);
+    let html_file = converter(md_file);
+
+    assert!(html_file.content.contains("<title>Skills | Denys Bushuliak</title>"));
+    assert!(html_file.content.contains(
+        "content=\"Technical skills: Rust, Go, JavaScript, CQRS, microservices, DDD, databases, and cloud.\""
+    ));
+    assert!(!html_file.content.contains("PAGE_TITLE"));
+    assert!(!html_file.content.contains("PAGE_DESCRIPTION"));
+}
+
+#[test]
+fn test_page_meta_index_keeps_main_site_title() {
+    let meta = builder::PageMeta::from_file_stem("index");
+    assert_eq!(
+        meta.title,
+        "Denys Bushuliak | Principal Software Engineer"
+    );
+}
+
+#[test]
+fn test_page_meta_known_pages_get_descriptions() {
+    let meta = builder::PageMeta::from_file_stem("recommendation_letters");
+    assert_eq!(meta.title, "Recommendation Letters | Denys Bushuliak");
+    assert_eq!(
+        meta.description,
+        "Letters of recommendation from past employers, with downloadable PDFs."
+    );
+}
+
+#[test]
+fn test_page_meta_unknown_stem_falls_back_to_humanized_title() {
+    let meta = builder::PageMeta::from_file_stem("my_writing");
+    assert_eq!(meta.title, "My Writing | Denys Bushuliak");
+    assert_eq!(meta.description, meta.title);
+}
+
+#[test]
 fn test_markdown_file_from_tuple() {
     let path = PathBuf::from("test.md");
     let content = "content".to_string();

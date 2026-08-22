@@ -7,6 +7,9 @@ use std::{
 };
 
 use crate::MarkdownFile;
+use crate::PageMeta;
+use crate::DESCRIPTION_PLACEHOLDER;
+use crate::TITLE_PLACEHOLDER;
 use crate::entities::html_file::HtmlFile;
 
 pub fn read_directory(
@@ -60,7 +63,17 @@ pub fn convert_to_html(
         let mut html_output = String::new();
         pulldown_cmark::html::push_html(&mut html_output, parser);
 
-        let html_output = layout_html_file.replace(placeholder, &html_output);
+        let stem = markdown_file
+            .path
+            .file_stem()
+            .and_then(|stem| stem.to_str())
+            .unwrap_or("");
+        let meta = PageMeta::from_file_stem(stem);
+
+        let html_output = layout_html_file
+            .replace(placeholder, &html_output)
+            .replace(TITLE_PLACEHOLDER, &meta.title)
+            .replace(DESCRIPTION_PLACEHOLDER, &meta.description);
 
         HtmlFile::new(path_to_save, html_output)
     }

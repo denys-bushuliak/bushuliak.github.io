@@ -4,6 +4,7 @@ pub mod functions;
 pub use entities::args_dto::Args;
 pub use entities::html_file::HtmlFile;
 pub use entities::markdown_file::MarkdownFile;
+pub use entities::page_meta::PageMeta;
 pub use entities::validated_args_dto::{ArgumentsValidationError, ValidatedArgsDto};
 
 use std::error::Error;
@@ -13,6 +14,8 @@ use functions::{convert_to_html, read_directory, save_to_disk};
 
 pub const LAYOUT_FILE_PATH: &str = "template.html";
 pub const CONTENT_PLACEHOLDER: &str = "<!--REPLACE_ME_BY_CONTENT-->";
+pub const TITLE_PLACEHOLDER: &str = "<!--PAGE_TITLE-->";
+pub const DESCRIPTION_PLACEHOLDER: &str = "<!--PAGE_DESCRIPTION-->";
 
 pub fn run(args: ValidatedArgsDto) -> Result<(), Box<dyn Error>> {
     let mut layout_file = String::new();
