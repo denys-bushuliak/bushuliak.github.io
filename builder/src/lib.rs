@@ -10,7 +10,7 @@ pub use entities::validated_args_dto::{ArgumentsValidationError, ValidatedArgsDt
 use std::error::Error;
 use std::fs::File;
 use std::io::Read;
-use functions::{convert_to_html, read_directory, save_to_disk};
+use functions::{build_resume, convert_to_html, read_directory, save_to_disk};
 
 pub const LAYOUT_FILE_PATH: &str = "template.html";
 pub const CONTENT_PLACEHOLDER: &str = "<!--REPLACE_ME_BY_CONTENT-->";
@@ -31,5 +31,9 @@ pub fn run(args: ValidatedArgsDto) -> Result<(), Box<dyn Error>> {
             &input_dir,
         ))
         .try_for_each(save_to_disk)?;
+
+    let resume = build_resume(&args.output_directory, &input_dir, &layout_file)?;
+    save_to_disk(resume)?;
+
     Ok(())
 }

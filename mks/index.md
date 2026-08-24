@@ -6,3 +6,4 @@ My core focus is distributed systems, Rust, and data-intensive backends. I work 
 - [Skills](skills.html) — what I work with
 - [Recommendation letters](recommendation_letters.html) — what past teams say
 - [About me](about.html) — background, education, and volunteering
+- [Résumé](resume.html) — everything on one page, print-ready

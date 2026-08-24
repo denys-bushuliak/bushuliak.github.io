@@ -35,6 +35,11 @@ impl PageMeta {
                 "Recommendation Letters | Denys Bushuliak".to_string(),
                 "Letters of recommendation from past employers, with downloadable PDFs.".to_string(),
             ),
+            "resume" => (
+                "Résumé | Denys Bushuliak".to_string(),
+                "Full résumé in one document: background, projects, skills, and recommendation letters — print-ready."
+                    .to_string(),
+            ),
             other => {
                 let title = format!("{} | Denys Bushuliak", humanize(other));
                 (title.clone(), title)

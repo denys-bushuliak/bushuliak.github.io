@@ -2,7 +2,7 @@ use std::fs;
 use std::path::PathBuf;
 use std::os::unix::fs::PermissionsExt;
 use tempfile::tempdir;
-use builder::functions::{read_directory, convert_to_html, save_to_disk};
+use builder::functions::{build_resume, convert_to_html, read_directory, save_to_disk};
 use builder::{MarkdownFile, HtmlFile};
 
 #[test]
@@ -162,7 +162,10 @@ fn test_run_success() {
     let output_dir = dir.path().join("out");
     fs::create_dir(&input_dir).unwrap();
     fs::write(input_dir.join("test.md"), "# Hello").unwrap();
-    
+    for part in ["about.md", "projects.md", "skills.md", "recommendation_letters.md"] {
+        fs::write(input_dir.join(part), "content").unwrap();
+    }
+
     let template_path = "template.html";
     let original_template = if std::path::Path::new(template_path).exists() {
         Some(fs::read_to_string(template_path).unwrap())
@@ -178,8 +181,9 @@ fn test_run_success() {
     };
     
     builder::run(args).unwrap();
-    
+
     assert!(output_dir.join("test.html").exists());
+    assert!(output_dir.join("resume.html").exists());
     
     // Restore template
     if let Some(content) = original_template {
@@ -260,4 +264,56 @@ fn test_recur_read_files_unreadable_file() {
 fn test_read_directory_invalid_path() {
     let result = read_directory(PathBuf::from("/non_existent_path_12345"));
     assert!(result.is_err());
+}
+
+#[test]
+fn test_build_resume_combines_all_parts() {
+    let dir = tempdir().unwrap();
+    let input = dir.path().join("in");
+    let output = dir.path().join("out");
+    fs::create_dir(&input).unwrap();
+
+    for name in ["about.md", "projects.md", "skills.md", "recommendation_letters.md"] {
+        fs::write(
+            input.join(name),
+            format!(
+                "<style>\n    #x{{\n        color: red !important;\n    }}\n</style>\n\n### Section {name}\nSome content {name}."
+            ),
+        )
+        .unwrap();
+    }
+
+    let layout = "<html><head><title><!--PAGE_TITLE--></title>\
+                  <meta name=\"description\" content=\"<!--PAGE_DESCRIPTION-->\"></head>\
+                  <body><!--REPLACE_ME_BY_CONTENT--></body></html>";
+
+    let html_file = build_resume(&output, &input, layout).unwrap();
+
+    let content = &html_file.content;
+    assert!(html_file.path_to_save.to_string_lossy().ends_with("resume.html"));
+    assert!(content.contains("<h1>About Me</h1>"));
+    assert!(content.contains("<h1>Projects</h1>"));
+    assert!(content.contains("<h1>Skills</h1>"));
+    assert!(content.contains("<h1>Recommendation Letters</h1>"));
+    assert!(content.contains("Some content about.md."));
+    assert!(content.contains("Some content recommendation_letters.md."));
+    assert!(!content.contains("#x{"));
+    assert!(content.contains("#resume-link"));
+    assert!(content.contains("<title>Résumé | Denys Bushuliak</title>"));
+    assert!(!content.contains("PAGE_TITLE"));
+    assert!(!content.contains("PAGE_DESCRIPTION"));
+}
+
+#[test]
+fn test_build_resume_missing_part_errors() {
+    let dir = tempdir().unwrap();
+    let input = dir.path().join("in");
+    fs::create_dir(&input).unwrap();
+    fs::write(input.join("about.md"), "content").unwrap();
+
+    let result =
+        build_resume(&dir.path().join("out"), &input, "<!--REPLACE_ME_BY_CONTENT-->");
+
+    assert!(result.is_err());
+    assert!(result.unwrap_err().to_string().contains("Cannot read resume part"));
 }
