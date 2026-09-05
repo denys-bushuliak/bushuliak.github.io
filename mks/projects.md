@@ -1,6 +1,6 @@
 <style>
     #projects-link{
-        color: red !important;
+        color: var(--active-nav-link-color) !important;
     }
 </style>
 

@@ -151,7 +151,7 @@ pub fn build_resume(
     layout_html_file: &str,
 ) -> Result<HtmlFile, Box<dyn Error>> {
     let mut content = String::from(
-        "<style>\n    #resume-link{\n        color: red !important;\n    }\n</style>\n",
+        "<style>\n    #resume-link{\n        color: var(--active-nav-link-color) !important;\n    }\n</style>\n",
     );
 
     for (file, title) in RESUME_PARTS {

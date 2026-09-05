@@ -1,3 +1,32 @@
+:root {
+  --bg-color: rgb(250, 249, 245);
+  --text-color: #000;
+  --link-color: #0000ee;
+  --visited-link-color: #551a8b;
+  --active-nav-link-color: red;
+  --hover-color: rgba(0, 0, 0, 0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-color: rgb(25, 24, 21);
+    --text-color: rgb(236, 234, 228);
+    --link-color: #8ab4f8;
+    --visited-link-color: #c58af9;
+    --active-nav-link-color: #ff6b6b;
+    --hover-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+[data-theme="dark"] {
+  --bg-color: rgb(25, 24, 21);
+  --text-color: rgb(236, 234, 228);
+  --link-color: #8ab4f8;
+  --visited-link-color: #c58af9;
+  --active-nav-link-color: #ff6b6b;
+  --hover-color: rgba(255, 255, 255, 0.08);
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
@@ -16,13 +45,22 @@ h2 {
 }
 
 body {
-  background-color: rgb(250, 249, 245);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 0;
   margin: 0;
 }
 
 article {
   flex: 2;
+}
+
+article a {
+  color: var(--link-color);
+}
+
+article a:visited {
+  color: var(--visited-link-color);
 }
 
 main {
@@ -75,6 +113,7 @@ main {
   width: 2em;
   height: 2em;
   vertical-align: -0.125em;
+  fill: currentColor;
 }
 
 #vertical-nav {
@@ -86,8 +125,37 @@ main {
   font-size: 2em;
   display: block;
   padding: 0;
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
+}
+
+#theme-toggle {
+  align-self: flex-start;
+  margin-top: 2em;
+  padding: 0.35em 1em;
+  font: inherit;
+  font-size: 0.9em;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  border-radius: 2em;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background-color: var(--hover-color);
+}
+
+#theme-toggle .label-dark {
+  display: none;
+}
+
+[data-theme="dark"] #theme-toggle .label-light {
+  display: none;
+}
+
+[data-theme="dark"] #theme-toggle .label-dark {
+  display: inline;
 }
 
 @page {
@@ -98,6 +166,7 @@ main {
 @media print {
   body {
     background-color: white;
+    color: black;
     margin: 0;
   }
 
@@ -114,7 +183,8 @@ main {
   }
 
   #vertical-nav,
-  #footer {
+  #footer,
+  #theme-toggle {
     display: none;
   }
 

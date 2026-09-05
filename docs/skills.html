@@ -18,6 +18,27 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="color-scheme" content="light dark" />
+		<script>
+			(function () {
+				try {
+					var theme = localStorage.getItem("theme");
+					if (theme !== "dark" && theme !== "light") {
+						theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+							? "dark"
+							: "light";
+					}
+					document.documentElement.setAttribute("data-theme", theme);
+				} catch (error) {}
+			})();
+		</script>
+		<noscript>
+			<style>
+				#theme-toggle {
+					display: none;
+				}
+			</style>
+		</noscript>
 		<title>Skills | Denys Bushuliak</title>
 		<meta
 			name="description"
@@ -57,6 +78,9 @@
 					<a href="about.html" id="about-me-link">About me</a>
 					<a href="resume.html" id="resume-link">Résumé</a>
 				</nav>
+				<button id="theme-toggle" type="button" aria-label="Toggle color theme">
+					<span class="label-light">Dark mode</span><span class="label-dark">Light mode</span>
+				</button>
 				<footer id="footer">
 					<nav aria-label="Social">
 						<a href="https://github.com/denys-bushuliak" aria-label="GitHub">
@@ -116,7 +140,7 @@
 			<article>
 				<style>
     #skills-link{
-        color: red !important;
+        color: var(--active-nav-link-color) !important;
     }
 </style>
 <h3>Programming Languages and DSLs</h3>
@@ -244,5 +268,22 @@
 
 			</article>
 		</main>
+		<script>
+			(function () {
+				var toggle = document.getElementById("theme-toggle");
+				if (!toggle) {
+					return;
+				}
+				toggle.addEventListener("click", function () {
+					var root = document.documentElement;
+					var nextTheme =
+						root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+					root.setAttribute("data-theme", nextTheme);
+					try {
+						localStorage.setItem("theme", nextTheme);
+					} catch (error) {}
+				});
+			})();
+		</script>
 	</body>
 </html>
