@@ -5,6 +5,17 @@
   --visited-link-color: #551a8b;
   --active-nav-link-color: red;
   --hover-color: rgba(0, 0, 0, 0.07);
+
+  /* Type scale (major-third, base 16px) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+
+  --leading-body: 1.6;
+  --leading-heading: 1.2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,12 +38,18 @@
   --hover-color: rgba(255, 255, 255, 0.08);
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
 }
 
 h1 {
@@ -40,8 +57,32 @@ h1 {
   padding: 0;
 }
 
-h2 {
-  font-weight: 400;
+p {
+  text-wrap: pretty;
+}
+
+article h1,
+article h2,
+article h3,
+article h4 {
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-block: 1.6em 0.6em;
+}
+
+article h1 {
+  font-size: var(--text-xl);
+}
+
+article h2 {
+  font-size: var(--text-lg);
+}
+
+article h3,
+article h4 {
+  font-size: var(--text-md);
 }
 
 body {
@@ -53,6 +94,7 @@ body {
 
 article {
   flex: 2;
+  max-width: 72ch;
 }
 
 article a {
@@ -81,7 +123,8 @@ main {
 }
 
 #footer {
-    font-size: 0.7em;
+    font-size: var(--text-xs);
+    line-height: var(--leading-body);
     margin-top: 4em;
 }
 
@@ -93,8 +136,10 @@ main {
 
 
 #sidebar hgroup h1 {
-  font-size: 3.5em;
+  font-size: clamp(2rem, 1.375rem + 3.125vw, 3.5rem);
   font-weight: 900;
+  line-height: var(--leading-heading);
+  letter-spacing: -0.02em;
   margin-bottom: 0;
 }
 
@@ -105,8 +150,9 @@ main {
 
 #sidebar hgroup p {
   margin-top: 0;
-  font-size: 1.65em;
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.65rem);
   font-weight: 300;
+  line-height: 1.4;
 }
 
 .icon {
@@ -122,9 +168,11 @@ main {
 
 #vertical-nav a {
   font-weight: 900;
-  font-size: 2em;
+  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.875rem);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.01em;
   display: block;
-  padding: 0;
+  padding: 0.15em 0;
   color: var(--text-color);
   text-decoration: none;
 }
@@ -134,7 +182,7 @@ main {
   margin-top: 2em;
   padding: 0.35em 1em;
   font: inherit;
-  font-size: 0.9em;
+  font-size: var(--text-sm);
   color: var(--text-color);
   background-color: transparent;
   border: 1px solid var(--text-color);
@@ -189,16 +237,17 @@ main {
   }
 
   #sidebar hgroup h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
   }
 
   #sidebar hgroup p {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     margin-bottom: 0;
   }
 
   article {
     width: 100%;
+    max-width: none;
   }
 
   h1,
