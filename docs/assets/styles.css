@@ -109,7 +109,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   min-height: calc(100vh - 2em);
-  margin: 1em 2em;
+  max-width: 75rem;
+  margin-inline: auto;
+  margin-block: 1em;
+  padding-inline: 2em;
 }
 
 #sidebar {
@@ -221,6 +224,7 @@ main {
   main {
     display: block;
     margin: 0;
+    max-width: none;
     min-height: 0;
   }
 
