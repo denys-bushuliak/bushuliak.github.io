@@ -18,12 +18,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #211f1b;
-    --bg-alt: #2a2722;
-    --card: #26231e;
-    --ink: #ece5d6;
-    --muted: #a9a08e;
-    --line: #454036;
+    --bg: #16261f;
+    --bg-alt: #1b2f27;
+    --card: #1f3630;
+    --ink: #e8e4d4;
+    --muted: #9fb0a2;
+    --line: #33493f;
     --accent: #8fc0ab;
   }
 }
